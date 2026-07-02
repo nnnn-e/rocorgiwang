@@ -1,0 +1,11 @@
+/* 覆盖列表标记样式 */
+.ai-message ol li::marker,
+.ai-message ul li::marker {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* 确保列表文本颜色正确 */
+.ai-message ol li,
+.ai-message ul li {
+  color: rgba(255, 255, 255, 0.8) !important;
+}

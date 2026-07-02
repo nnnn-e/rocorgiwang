@@ -1,0 +1,23 @@
+/* 强制覆盖 ReactMarkdown 生成的列表标记颜色 */
+.premium-markdown ul li::marker,
+.premium-markdown ol li::marker {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* 确保列表文本颜色正确 */
+.premium-markdown ul li,
+.premium-markdown ol li {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* 移除 Tailwind prose 的默认列表样式 */
+.premium-markdown .prose ol,
+.premium-markdown .prose ul {
+  list-style-type: revert !important;
+  margin-left: 1.5rem !important;
+}
+
+/* 确保代码块内的文本颜色正确 */
+.premium-markdown pre code {
+  color: rgba(255, 255, 255, 0.8) !important;
+}

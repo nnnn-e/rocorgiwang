@@ -1,0 +1,995 @@
+/* Keep the existing font-face declarations for compatibility with components that might specifically reference them */
+@font-face {
+  font-family: "ChicagoKare";
+  src: url("/fonts/ChicagoKare.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Sysfont";
+  src: url("/fonts/sysfont.woff2") format("woff2"), url("/fonts/sysfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* 添加像素字体 - 使用正确的字体名称和URL */
+@font-face {
+  font-family: "AdvinePixelDemo-Regular";
+  src: url("https://zmrurobjorvsmoypwxhk.supabase.co/storage/v1/object/public/personalsite/Font/AdvinePixelDemo-Regular.woff")
+    format("woff");
+  font-weight: normal !important;
+  font-style: normal !important;
+  font-display: block; /* 确保字体在加载完成前不显示文本 */
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: inherit; /* This will inherit the Bricolage Grotesque font from the html element */
+  @apply bg-white text-black antialiased;
+  position: relative;
+  z-index: 0;
+}
+
+/* 确保圆角样式不被覆盖 */
+.rounded-lg {
+  border-radius: 0.5rem !important;
+}
+
+/* 更新：AI 面板和输入框容器样式 */
+.input-container {
+  background-color: transparent !important;
+  backdrop-filter: none;
+}
+
+/* 新增：输入框文字区域样式 */
+.input-textarea {
+  background-color: transparent !important;
+}
+
+/* Replace the existing text-gray-* classes with black/white variants */
+.text-gray-100 {
+  color: rgba(255, 255, 255, 0.1);
+}
+.text-gray-200 {
+  color: rgba(255, 255, 255, 0.2);
+}
+.text-gray-300 {
+  color: rgba(255, 255, 255, 0.3);
+}
+.text-gray-400 {
+  color: rgba(255, 255, 255, 0.4);
+}
+.text-gray-500 {
+  color: rgba(255, 255, 255, 0.5);
+}
+.text-gray-600 {
+  color: rgba(255, 255, 255, 0.6);
+}
+.text-gray-700 {
+  color: rgba(255, 255, 255, 0.7);
+}
+.text-gray-800 {
+  color: rgba(255, 255, 255, 0.8);
+}
+.text-gray-900 {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Replace the existing bg-gray-* classes with black/white variants */
+.bg-gray-100 {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+.bg-gray-200 {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+.bg-gray-300 {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+.bg-gray-400 {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+.bg-gray-500 {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.bg-gray-600 {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+.bg-gray-700 {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.bg-gray-800 {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.bg-gray-900 {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Update hover effects */
+.hover\:bg-gray-100:hover {
+  background-color: rgba(255, 255, 255, 0.04);
+}
+.hover\:bg-gray-200:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+.hover\:bg-gray-300:hover {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+/* Update border colors */
+.border-gray-200 {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+.border-gray-300 {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.idea-card-content {
+  padding: 0.4rem 0.8rem;
+}
+
+/* 更新用户消息背景色 */
+.user-message {
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+  border-radius: 20px;
+}
+
+/* 移除AI消息背景色 */
+.ai-message {
+  background: transparent;
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* 在文件末尾添 */
+.ProseMirror h1.is-empty::before {
+  content: attr(data-placeholder);
+  float: left;
+  color: rgba(255, 255, 255, 0.3);
+  pointer-events: none;
+  height: 0;
+}
+
+.ProseMirror h1 {
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+
+.ProseMirror {
+  padding-top: 1rem;
+}
+
+.ProseMirror p.is-empty::before {
+  content: attr(data-placeholder);
+  float: left;
+  color: rgba(255, 255, 255, 0.3);
+  pointer-events: none;
+  height: 0;
+}
+
+/* Add these new styles for transitions */
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+.duration-300 {
+  transition-duration: 300ms;
+}
+
+.ease-in-out {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 确保消息文本颜色正确 */
+.user-message,
+.ai-message {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* 如果背景是深色，则使用浅色文本 */
+.dark .user-message,
+.dark .ai-message {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* 确保 prompt 项的 hover 效果保持圆角 */
+.prompt-item {
+  border-radius: 1rem; /* 等同于 rounded-md */
+}
+
+.prompt-item:hover {
+  background-color: rgba(255, 255, 255, 0.04);
+  border-radius: 1rem; /* 确保 hover 时也保持圆角 */
+}
+
+/* 使用 !important 来确保这些样式不被覆盖 */
+.rounded-md,
+.rounded-md:hover,
+.prompt-item,
+.prompt-item:hover {
+  border-radius: 1rem !important;
+}
+
+/* 添加角落大字的样式类 - 使用更强的选择器确保应用 */
+.corner-text,
+.MuiTypography-h1.corner-text,
+.MuiTypography-h2.corner-text,
+.MuiTypography-h3.corner-text,
+.MuiTypography-h4.corner-text,
+.MuiTypography-h5.corner-text,
+.MuiTypography-h6.corner-text,
+h1.corner-text,
+h2.corner-text,
+h3.corner-text,
+h4.corner-text,
+h5.corner-text,
+h6.corner-text {
+  font-family: "AdvinePixelDemo-Regular", monospace !important; /* 使用正确的字体名称 */
+  font-weight: normal;
+  letter-spacing: 0;
+}
+
+/* 直接针对左侧容器中的大字 */
+.left-container h1,
+.left-container h2,
+.left-container h3,
+.left-container .MuiTypography-h1,
+.left-container .MuiTypography-h2,
+.left-container .MuiTypography-h3 {
+  font-family: "AdvinePixelDemo-Regular", monospace !important; /* 使用正确的字体名称 */
+}
+
+/* 优化 AI 消息的 Markdown 排版 - 精美版 */
+.ai-message {
+  /* 继承Bricolage Grotesque字体 */
+  font-family: inherit;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: -0.011em;
+  padding: 0.5rem 0;
+}
+
+.ai-message .prose {
+  max-width: none;
+  font-size: 17px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.ai-message .prose h1,
+.ai-message .prose h2,
+.ai-message .prose h3,
+.ai-message .prose h4,
+.ai-message .prose h5,
+.ai-message .prose h6 {
+  font-weight: 600;
+  line-height: 1.3;
+  color: #1a202c;
+  position: relative;
+  margin-top: 2em;
+  margin-bottom: 1em;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.ai-message .prose h1 {
+  font-size: 1.875em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 0.3em;
+}
+
+.ai-message .prose h2 {
+  font-size: 1.5em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 0.3em;
+}
+
+.ai-message .prose h3 {
+  font-size: 1.25em;
+}
+
+.ai-message .prose h4 {
+  font-size: 1.125em;
+}
+
+.ai-message .prose h5 {
+  font-size: 1em;
+}
+
+.ai-message .prose h6 {
+  font-size: 0.875em;
+  color: #4a5568;
+}
+
+/* 段落样式 */
+.ai-message .prose p {
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* 列表样式 */
+.ai-message .prose ul,
+.ai-message .prose ol {
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
+  padding-left: 1.625em;
+}
+
+.ai-message .prose li {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  padding-left: 1em;
+}
+
+.ai-message .prose ul > li::marker {
+  content: "•";
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.ai-message .prose ul > ol::marker {
+  content: "•";
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.ai-message .prose ol > li::marker {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* 嵌套列表 */
+.ai-message .prose li > ul,
+.ai-message .prose li > ol {
+  margin-top: 0.75em;
+  margin-bottom: 0.75em;
+}
+
+/* 代码样式 */
+.ai-message .prose code {
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  font-size: 1em;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  color: #805ad5;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.ai-message .prose pre {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1.25em;
+  border-radius: 6px;
+  overflow-x: auto;
+  margin: 1.5em 0;
+  font-size: 1em;
+}
+
+.ai-message .prose pre code {
+  background-color: transparent;
+  padding: 0;
+  border-radius: 0;
+  color: #2d3748;
+  font-size: 1em;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* 引用样式 */
+.ai-message .prose blockquote {
+  border-left: 4px solid #805ad5;
+  padding: 0.6em 1.2em;
+  margin: 1.5em 0;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 0 4px 4px 0;
+  font-style: italic;
+  color: #4a5568;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+  border-left-color: rgba(255, 255, 255, 0.1);
+}
+
+.ai-message .prose blockquote p {
+  margin-top: 0.6em;
+  margin-bottom: 0.6em;
+}
+
+/* 链接样式 */
+.ai-message .prose a {
+  color: #3182ce;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.2s ease;
+  color: rgba(255, 255, 255, 0.9);
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.ai-message .prose a:hover {
+  color: #2c5282;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 1);
+  border-bottom-color: rgba(255, 255, 255, 0.6);
+}
+
+/* 表格样式 */
+.ai-message .prose table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1.5em 0;
+  font-size: 0.95em;
+  line-height: 1.5;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  overflow: hidden;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.ai-message .prose th {
+  background-color: #f7fafc;
+  font-weight: 600;
+  text-align: left;
+  padding: 0.75em 1em;
+  border-bottom: 2px solid #e2e8f0;
+  color: #1a202c;
+  background-color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.9);
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.ai-message .prose td {
+  padding: 0.75em 1em;
+  border-bottom: 1px solid #e2e8f0;
+  border-right: 1px solid #e2e8f0;
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+  border-right-color: rgba(255, 255, 255, 0.1);
+}
+
+.ai-message .prose tr:last-child td {
+  border-bottom: none;
+}
+
+.ai-message .prose td:last-child {
+  border-right: none;
+}
+
+.ai-message .prose tr:nth-child(even) {
+  background-color: #f7fafc;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* 水平线样式 */
+.ai-message .prose hr {
+  border: none;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 4rem 0;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* 在ReactMarkdown组件中也需要修改hr的样式 */
+
+/* 图片样式 */
+.ai-message .prose img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin: 1.5em 0;
+  box-shadow: 0 4px 6px -1px rgba(255, 255, 255, 0.1), 0 2px 4px -1px rgba(255, 255, 255, 0.06);
+}
+
+/* 首个和最后元素的间距 */
+.ai-message .prose > *:first-child {
+  margin-top: 0;
+}
+
+.ai-message .prose > *:last-child {
+  margin-bottom: 0;
+}
+
+/* 标题后的元素间距 */
+.ai-message .prose h1 + *,
+.ai-message .prose h2 + *,
+.ai-message .prose h3 + *,
+.ai-message .prose h4 + * {
+  margin-top: 1em;
+}
+
+/* 标题前的元素间距 */
+.ai-message .prose * + h1,
+.ai-message .prose * + h2,
+.ai-message .prose * + h3,
+.ai-message .prose * + h4 {
+  margin-top: 2em;
+}
+
+/* 水平线周围的间距 */
+.ai-message .prose hr + * {
+  margin-top: 2em;
+}
+
+.ai-message .prose * + hr {
+  margin-top: 2em;
+}
+
+/* 强调和加粗文本 */
+.ai-message .prose strong {
+  font-weight: 600;
+  color: #1a202c;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.ai-message .prose em {
+  font-style: italic;
+  color: #2d3748;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* 代码块标题 */
+.ai-message .prose pre[data-filename]::before {
+  content: attr(data-filename);
+  display: block;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 0.5em 1em;
+  margin: -1.25em -1.25em 1em -1.25em;
+  border-bottom: 1px solid #cbd5e0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 0.875em;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+  border-radius: 16px 16px 0 0;
+}
+
+/* 任务列表 */
+.ai-message .prose ul.contains-task-list {
+  padding-left: 0;
+  list-style: none;
+}
+
+.ai-message .prose ul.contains-task-list li {
+  display: flex;
+  align-items: flex-start;
+  margin: 0.5em 0;
+}
+
+.ai-message .prose ul.contains-task-list li input[type="checkbox"] {
+  margin-right: 0.5em;
+  margin-top: 0.25em;
+}
+
+/* 代码块语法高亮 */
+.ai-message .prose pre .token.comment,
+.ai-message .prose pre .token.prolog,
+.ai-message .prose pre .token.doctype,
+.ai-message .prose pre .token.cdata {
+  color: #73acff;
+}
+
+.ai-message .prose pre .token.punctuation {
+  color: #64f2ff;
+}
+
+.ai-message .prose pre .token.property,
+.ai-message .prose pre .token.tag,
+.ai-message .prose pre .token.boolean,
+.ai-message .prose pre .token.number,
+.ai-message .prose pre .token.constant,
+.ai-message .prose pre .token.symbol,
+.ai-message .prose pre .token.deleted {
+  color: #ff4b4b;
+}
+
+.ai-message .prose pre .token.selector,
+.ai-message .prose pre .token.attr-name,
+.ai-message .prose pre .token.string,
+.ai-message .prose pre .token.char,
+.ai-message .prose pre .token.builtin,
+.ai-message .prose pre .token.inserted {
+  color: #23ff8a;
+}
+
+.ai-message .prose pre .token.operator,
+.ai-message .prose pre .token.entity,
+.ai-message .prose pre .token.url,
+.ai-message .prose pre .language-css .token.string,
+.ai-message .prose pre .style .token.string {
+  color: #9f75ff;
+}
+
+.ai-message .prose pre .token.atrule,
+.ai-message .prose pre .token.attr-value,
+.ai-message .prose pre .token.keyword {
+  color: #3a9fff;
+}
+
+.ai-message .prose pre .token.function,
+.ai-message .prose pre .token.class-name {
+  color: #ff8534;
+}
+
+.ai-message .prose pre .token.regex,
+.ai-message .prose pre .token.important,
+.ai-message .prose pre .token.variable {
+  color: #805ad5;
+}
+
+/* 提示框样式 */
+.ai-message .prose .info,
+.ai-message .prose .warning,
+.ai-message .prose .error,
+.ai-message .prose .success,
+.ai-message .prose .note {
+  padding: 1em;
+  margin: 1.5em 0;
+  border-radius: 6px;
+  border-left: 4px solid;
+}
+
+.ai-message .prose .info {
+  background-color: rgba(255, 255, 255, 0.6);
+  border-left-color: rgba(255, 255, 255, 0.6);
+}
+
+.ai-message .prose .warning {
+  background-color: rgba(255, 255, 255, 0.6);
+  border-left-color: rgba(255, 255, 255, 0.6);
+}
+
+.ai-message .prose .error {
+  background-color: rgba(255, 255, 255, 0.6);
+  border-left-color: rgba(255, 255, 255, 0.6);
+}
+
+.ai-message .prose .success {
+  background-color: rgba(255, 255, 255, 0.6);
+  border-left-color: rgba(255, 255, 255, 0.6);
+}
+
+.ai-message .prose .note {
+  background-color: rgba(255, 255, 255, 0.6);
+  border-left-color: rgba(255, 255, 255, 0.6);
+}
+
+/* 定义列表 */
+.ai-message .prose dl {
+  margin: 1.5em 0;
+}
+
+.ai-message .prose dt {
+  font-weight: 600;
+  color: #1a202c;
+}
+
+.ai-message .prose dd {
+  margin-left: 1.5em;
+  margin-top: 0.5em;
+  color: #4a5568;
+}
+
+/* 键盘按键样式 */
+.ai-message .prose kbd {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid #cbd5e0;
+  border-radius: 3px;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+  color: rgba(255, 255, 255, 0.8);
+  display: inline-block;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 0.75em;
+  line-height: 1;
+  padding: 0.2em 0.4em;
+  margin: 0 0.2em;
+  vertical-align: middle;
+}
+
+/* 上标和下标 */
+.ai-message .prose sup,
+.ai-message .prose sub {
+  font-size: 0.75em;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+.ai-message .prose sup {
+  top: -0.5em;
+}
+
+.ai-message .prose sub {
+  bottom: -0.25em;
+}
+
+/* 首行缩进 */
+.ai-message .prose .indent {
+  text-indent: 2em;
+}
+
+/* 文本对齐 */
+.ai-message .prose .text-center {
+  text-align: center;
+}
+
+.ai-message .prose .text-right {
+  text-align: right;
+}
+
+.ai-message .prose .text-justify {
+  text-align: justify;
+}
+
+/* 引用标记 */
+.ai-message .prose blockquote::before {
+  content: "\201C";
+  font-size: 3em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+  color: rgba(255, 255, 255, 0.5);
+  position: absolute;
+  left: -0.5em;
+  top: 0.5em;
+}
+
+/* 首字下沉 */
+.ai-message .prose .has-dropcap:first-letter {
+  float: left;
+  font-size: 3em;
+  line-height: 0.8;
+  margin-right: 0.1em;
+  color: #805ad5;
+}
+
+/* 代码行号 */
+.ai-message .prose pre.has-line-numbers {
+  counter-reset: line;
+}
+
+.ai-message .prose pre.has-line-numbers > code::before {
+  counter-increment: line;
+  content: counter(line);
+  display: inline-block;
+  width: 1.5em;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0 0.5em;
+  margin-right: 0.5em;
+  color: #a0aec0;
+  text-align: right;
+}
+
+/* 增强段落间距 */
+.ai-message .prose p + p {
+  margin-top: 1.8em;
+}
+
+/* 增强标题与段落间距 */
+.ai-message .prose h1 + p,
+.ai-message .prose h2 + p,
+.ai-message .prose h3 + p {
+  margin-top: 1.2em;
+}
+
+/* 增强列表项间距 */
+.ai-message .prose li + li {
+  margin-top: 0.8em;
+}
+
+/* 高级排版样式 - 超越 Notion 与 Apple */
+.premium-markdown {
+  /* 继承Bricolage Grotesque字体 */
+  font-family: inherit;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.premium-markdown h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  margin: 3rem 0 1.5rem;
+  color: rgba(255, 255, 255, 1);
+  text-align: center;
+}
+
+.premium-markdown h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+  margin: 2.5rem 0 1.25rem;
+  color: rgba(255, 255, 255, 0.9);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 0.5rem;
+}
+
+.premium-markdown h3 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.4;
+  margin: 2rem 0 1rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.premium-markdown h4 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.4;
+  margin: 1.75rem 0 0.875rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.premium-markdown p {
+  margin: 1.5rem 0;
+  line-height: 1.45;
+}
+
+.premium-markdown ul,
+.premium-markdown ol {
+  margin: 1.5rem 0;
+  padding-left: 2rem;
+}
+
+.premium-markdown li {
+  margin: 0.75rem 0;
+  padding-left: 0.5rem;
+}
+
+.premium-markdown blockquote {
+  margin: 2rem 0;
+  padding: 1.5rem 2rem;
+  border-left: 4px solid rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 0.5rem;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* 修复嵌套CSS问题 - 将嵌套规则提取到顶层 */
+.premium-markdown pre {
+  margin: 1.5rem 0;
+  padding: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #e2e8f0;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+}
+
+.premium-markdown code {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 1.05em;
+  padding: 0.2em 0.4em;
+  border-radius: 0.25rem;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.premium-markdown pre code {
+  background-color: transparent;
+  padding: 0;
+  border-radius: 0;
+  color: inherit;
+}
+
+.premium-markdown table {
+  width: 100%;
+  margin: 2rem 0;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 1px 3px 0 rgba(255, 255, 255, 0.1), 0 1px 2px 0 rgba(255, 255, 255, 0.06);
+}
+
+.premium-markdown th {
+  background-color: #f7fafc;
+  font-weight: 600;
+  text-align: left;
+  padding: 1rem;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  color: #1a202c;
+}
+
+.premium-markdown td {
+  padding: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.premium-markdown tr:last-child td {
+  border-bottom: none;
+}
+
+.premium-markdown td:last-child {
+  border-right: none;
+}
+
+.premium-markdown tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.premium-markdown hr {
+  margin: 3rem 0;
+  height: 1px;
+  background: linear-gradient(to right, rgba(226, 232, 240, 0), rgba(226, 232, 240, 1) 50%, rgba(226, 232, 240, 0));
+  border: none;
+}
+
+.premium-markdown img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  margin: 2rem 0;
+  box-shadow: 0 4px 6px -1px rgba(255, 255, 255, 0.1), 0 2px 4px -1px rgba(255, 255, 255, 0.06);
+}
+
+/* 修复嵌套CSS问题 - 将嵌套规则提取到顶层 */
+
+
+form textarea {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+::placeholder {
+  color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.prompt-item {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.prompt-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* 设置 Thinking 指示器的颜色 */
+.flex.items-center.space-x-2.mt-4 {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.flex.items-center.space-x-2.mt-4 span {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* 设置输入框文本颜色 */
+form textarea {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* 设置输入框占位符文本颜色 */
+form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* 添加 pixelated 类 */
+.pixelated {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+/* 水平文字渐变动画 - 右侧容器的Thinking文本 */
+@keyframes textGradientMove {
+  0% {
+    background-position: 100% center;
+  }
+  100% {
+    background-position: 0% center;
+  }
+}
+
+.gradient-animation {
+  color: #444;
+  background: linear-gradient(to right, #444 0%, #fff 20%, #444 40%, #444 60%, #444 80%, #444 100%);
+  background-size: 400% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+  animation: textGradientMove 1000ms linear infinite;
+}
